@@ -6,9 +6,10 @@ import java.util.Scanner;
 import persistence.PersistenceUtil;
 import entity.Item;
 
-
+//Interface class for DAO pattern
 public class ItemConfig {
-	String brand,model; 
+	String brand,model,category;
+	double price;
 	Scanner scan = new Scanner(System.in);
 	
 	public static void main(String[] args){
@@ -22,8 +23,10 @@ public class ItemConfig {
 	    brand = scan.nextLine();
 	    System.out.println("Enter model:");
 	    model = scan.nextLine();
-		createItem(brand, model);
-		System.out.println("Item " + brand + model + " has been registered!");
+	    category = "phone";
+	    price = 99.99;
+		createItem(brand, model, price, category);
+		System.out.println("Item " + brand + " " + model + " has been registered!");
 	}
 
 	//print out all items
@@ -48,11 +51,10 @@ public class ItemConfig {
 	}
 	}*/
 	
-	public void createItem(String brand, String model){
-		Item item = new Item(brand, model);
+	public void createItem(String brand, String model, double price, String category){
+		Item item = new Item(brand, model, price, category);
 		PersistenceUtil.persist(item);
 		PersistenceUtil.findItemByBrand(brand);
-		System.out.println("Item registered");
 	}
 			
 

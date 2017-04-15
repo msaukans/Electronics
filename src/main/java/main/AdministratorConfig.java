@@ -6,7 +6,7 @@ import java.util.Scanner;
 import persistence.PersistenceUtil;
 import entity.Administrator;
 
-
+//Interface class for DAO pattern
 public class AdministratorConfig {
 	String name,pass; 
 	Scanner scan = new Scanner(System.in);
@@ -52,7 +52,6 @@ public class AdministratorConfig {
 		Administrator administrator = new Administrator(name, password);
 		PersistenceUtil.persist(administrator);
 		//PersistenceUtil.findAdministratorByUsername(name);
-		System.out.println("Administrator registered");
 	}
 			
 

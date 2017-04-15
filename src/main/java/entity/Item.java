@@ -11,7 +11,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-
+//Actor class for DAO pattern
 @NamedQueries( {
 	@NamedQuery(name = "Item.findAll", query = "select o from Item o"),
 	@NamedQuery(name = "Item.findByBrand", query = "select o from Item o where o.brand=:brand"),
@@ -27,17 +27,21 @@ public class Item {
 	
 	private String brand;
 	private String model;
-	
+	private double price;
+	private String category;
+	//private blob pic;
 	
 	public Item(){
 		
 	}
 	
 
-	public Item(String brand, String model) {
+	public Item(String brand, String model, double price, String category) {
 		super();
 		this.brand = brand;
 		this.model = model;
+		this.price = price;
+		this.category = category;
 	}
 
 

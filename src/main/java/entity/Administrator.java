@@ -12,7 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-
+//Actor class for DAO pattern
 @NamedQueries( {
 	@NamedQuery(name = "Administrator.findAll", query = "select o from Administrator o"),
 	@NamedQuery(name = "Administrator.findByUsername", query = "select o from Administrator o where o.username=:username"),
