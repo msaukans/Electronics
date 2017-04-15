@@ -29,5 +29,23 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/tomcat/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/commons-collections-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/hibernate-core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/hibernate-entitymanager.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/mysql-connector-java.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/m/Desktop/JPAMySQL/lib/slf4j-simple-1.5.8.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

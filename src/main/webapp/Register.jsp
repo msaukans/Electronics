@@ -11,8 +11,21 @@
 
 </head>
 
-<body>
-	<div style="padding-left:50%; padding-top:3cm;">
+<body background="bgpic.png" style="background-size:cover; background-color:#cccccc; ">
+
+<div id="login" align="right">
+	<a href="Login.jsp">login</a>
+</div>
+
+<div id="menu" align="center" style="padding-top:0.1cm;">
+	<a href="index.jsp">Menu</a>
+</div>
+
+<div style="float:left; padding-left:1cm; padding-top:1cm;"> 
+	<h1 style="color:black;background-color:white;">Welcome To Electronics!</h1>
+</div>
+
+<div  style="float:right; padding-right:2.5cm; padding-top:3cm; color:white !important;">
 		<h2>Registration</h1>
 		
 	<form action="/action_page.php" >
@@ -24,6 +37,7 @@
   <br><br>
   <input type="submit" value="Submit">
 	</form>
+<p> Already have an account? Login <a href="Login.jsp"><button type="submit">Here</button></a></p>	
 	</div>
 	
 	
