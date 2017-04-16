@@ -63,9 +63,7 @@
 	i = i +1 ;
  */
 	int is=st.executeUpdate("insert into administrator values ('20','"+administrator+"','"+password+"')");
-out.println("Registered " + administrator ); 
-
-
+	out.println("Registered " + administrator );
 %> 
        
        <%-- <%@ page import =" persistence.PersistenceUtil" %>

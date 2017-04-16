@@ -1,11 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title>Login</title>
+<title>Registration</title>
 
 <link href="bootstrap.css" rel="stylesheet">
     <link href="ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -14,14 +16,13 @@
 
 </head>
 
-
-<body background="bgpic.png" style="background-size:cover; background-color:#cccccc;">
+<body background="bgpic.png" style="background-size:cover; background-color:#cccccc; ">
 
 <div id="login" align="right">
-	<a href="Register.jsp"> Register </a>
+	<a href="Login.jsp">login</a>
 </div>
 
- <div class="container"><!-- main body div -->
+ <div class="container" ><!-- main body div -->
 		<div class="masthead" align="center">
         <a href="index.jsp"><h1 class="text-muted" style="color:#151B54"><b>Electronics</b></h1></a>
         <nav style="background-color: lightgrey">
@@ -32,12 +33,12 @@
           </ul>
         </nav>
       </div>
-
-
-<div class="welcome" style="float:left; "> 
+<div style="float:left; padding-left:1cm; padding-top:1cm;"> 
 	<h1 style="color:black;background-color:white;">Welcome To Electronics!</h1>
-</div>
+</div><br><br><br>
 
+
+	  
 	 <div class="row" align="center" >
         <div class="col-lg-4" style="padding:5px;margin-right:4px;border-radius: 25px;display;margin-left:3%">
           <p></p>
@@ -45,60 +46,56 @@
         <div class="col-lg-4" style="border-radius: 25px;padding:5px;margin-right:5px;">
           <p></p>
        </div>
-        <div class="col-lg-4" style="background-color:lightgrey; border-radius: 25px;padding:5px;margin-right:4px; float:right;">
-          	<%@ page import="java.sql.*"%>
-			<%@ page import="javax.sql.*"%>
+        <div class="col-lg-4" style="background-color:lightgrey; border-radius: 25px;padding:5px;margin-right:4px; max-width:300px;">
+          <%@ page import ="java.sql.*" %>
+			<%@ page import ="javax.sql.*" %>
 	<%
-	String username=request.getParameter("username"); 
-	session.putValue("username",username); 
+	String administrator=request.getParameter("username"); 
+	session.putValue("id",administrator); 
 	String password=request.getParameter("password"); 
 	Class.forName("com.mysql.jdbc.Driver"); 
-	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics","root","root"); 
+	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics",
+	"root","root"); 
 	Statement st= con.createStatement(); 
-	ResultSet rs=st.executeQuery("select * from administrator where username='"+username+"'"); 
-	if(rs.next()){ 
-	if(rs.getString(2).equals(password)){ 
-		out.println("welcome "+username + " administrator"); 
-		%>
-		
-		<form method="get" action="details.jsp">
-   			 <button type="submit">Check user and stock details</button>
-		</form>
-		 
-		<%
-		} 
-	else { 
-		 rs = st.executeQuery("select * from customer where username='"+username+"'"); 
-			if(rs.next()){ 
-				if(rs.getString(2).equals(password)){ 
-					out.println("welcome  back "+ username + " dear customer"); 
-				} 
-				else{
-					out.println("Invalid password for customer try again ");	
-				}
-			}
-			else{
-				out.println("Invalid password  for admin  try again ");
-			}
-			 
-		 }	 
-	} 
-	
-	%> 
+	ResultSet rs; ;
+	/* rs = st.executeQuery("SELECT * FROM table WHERE id = (SELECT MAX(id) FROM table);");
+	int i = rs.getInt(1);
+	i = i +1 ;
+ */
+	int is=st.executeUpdate("insert into administrator values ('20','"+administrator+"','"+password+"')");
+out.println("Registered " + administrator ); 
+
+
+%> 
+       
+       <%-- <%@ page import =" persistence.PersistenceUtil" %>
+       <%@ page import="entity.Administrator" %>
+       <%@ page import="main.AdministratorConfig" %>
+       <%
+      
+	String administrator=request.getParameter("username"); 
+	session.putValue("id",administrator); 
+	String password=request.getParameter("password"); 
+	Administrator a = new Administrator(administrator, password);
+	PersistenceUtil.persist(administrator);
+	out.println("Registered " + administrator ); 
+	%>  --%>
+       
         </div>
 		
       </div><br>
-		
+
+	
 	  
-	  <br><br><br>
-      <!-- Site footer -->
-<div>
-      <footer class="footer" style="background-color: lightgrey; padding:0px; bottom: 0; margin: 0 auto; position: absolute; width:80%;">
+
+       <footer class="footer" style="background-color: lightgrey; padding:10px; bottom: 10px; margin: 0 auto; position: initial; width:80%;">
         <p align="center">&copy; 2017 Electronics, Maris Saukans , C12335876 , <a href="mailto:c12335876@mydit.ie?Subject=Hello%20"
 		target="_top">C12335876@mydit.ie</a></p>
       </footer>
-	</div>
+      <!-- Site footer -->
+
 	</div> <!--end body container div-->
+
 
 		
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

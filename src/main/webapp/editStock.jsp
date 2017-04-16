@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Homepage</title>
+<title>Edit Stock</title>
 
 	<link href="bootstrap.css" rel="stylesheet">
     <link href="ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -67,37 +67,13 @@ input[type=text]:focus {
           <p></p>
         </div>
         <div class="col-lg-4" style="border-radius: 25px;padding:5px;margin-right:5px;">
-        <h1>Stock</h1>
            <%@ page import="java.sql.*"%>
 			<%@ page import="javax.sql.*"%>
 	<%
 		Class.forName("com.mysql.jdbc.Driver"); 
 		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics?autoReconnect=true&useSSL=false","root","root"); 
 		Statement st= con.createStatement(); 
-          
-          ResultSet rs=st.executeQuery("SELECT id, brand, model, category, price, rating, stock FROM Item "); 
-		while(rs.next()){
-		//Retrieve by column name
-        int id  = rs.getInt("id");
-        String brand = rs.getString("brand");
-        String model = rs.getString("model");
-        String category = rs.getString("category");
-        Double price = rs.getDouble("price");
-		int rating = rs.getInt("rating");
-		int stock = rs.getInt("stock");
-        
-        //Display values
-        %><table><tr><td><%
-        out.print(" ID: " + id + " ");%></td><th><%
-        out.print(" Brand: " + brand + " ");%></th><th><%
-        out.print("  Model: " + model + " ");%></th><th><%
-        out.print("  Category: " + category + " ");%></th><th><%
-        out.print(" Price: " + price + " ");%></th><th><%
-        out.print("  Rating: " + rating + " ");%></th><th><%
-        out.print("  Stock: " + stock + " ");%></th></tr></table><%
-                
-     }
-	rs.close();
+      
 	%> 
        </div>
         <div class="col-lg-4" style=" border-radius: 25px;padding:5px;margin-right:4px;">
