@@ -47,31 +47,40 @@
           <p></p>
        </div>
         <div class="col-lg-4" style="background-color:lightgrey; border-radius: 25px;padding:5px;margin-right:4px; max-width:300px;">
-          <h2 align="center">Registration</h2>
-          <form action="AdminRegister.jsp" method="post" >
-  Username:<br>
-  <input type="text" name="username" >
-  <br>
-<!--   Email:<br>
-  <input type="text" name="email" >
-  <br>
-  Name:<br>
-  <input type="text" name="name" >
-  <br>
-  Date of Birth:(eg: 27/05/1994)<br>
-  <input type="text" name="dob" >
-  <br>
-  Address:<br>
-  <input type="text" name="address" >
-  <br>Money<br>
-  <input type="text" name="cash" >
-  <br> -->
-  Password:<br>
-  <input type="text" name="password">
-  <br><br>
-  <input type="submit" >
-	</form>
-<p > Already have an account? Login <a href="Login.jsp"><button type="submit">Here</button></a></p>	
+          <%@ page import ="java.sql.*" %>
+			<%@ page import ="javax.sql.*" %>
+	<%
+	String administrator=request.getParameter("username"); 
+	session.putValue("id",administrator); 
+	String password=request.getParameter("password"); 
+	Class.forName("com.mysql.jdbc.Driver"); 
+	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics",
+	"root","root"); 
+	Statement st= con.createStatement(); 
+	ResultSet rs; ;
+	/* rs = st.executeQuery("SELECT * FROM table WHERE id = (SELECT MAX(id) FROM table);");
+	int i = rs.getInt(1);
+	i = i +1 ;
+ */
+	int is=st.executeUpdate("insert into administrator values ('20','"+administrator+"','"+password+"')");
+out.println("Registered " + administrator ); 
+
+
+%> 
+       
+       <%-- <%@ page import =" persistence.PersistenceUtil" %>
+       <%@ page import="entity.Administrator" %>
+       <%@ page import="main.AdministratorConfig" %>
+       <%
+      
+	String administrator=request.getParameter("username"); 
+	session.putValue("id",administrator); 
+	String password=request.getParameter("password"); 
+	Administrator a = new Administrator(administrator, password);
+	PersistenceUtil.persist(administrator);
+	out.println("Registered " + administrator ); 
+	%>  --%>
+       
         </div>
 		
       </div><br>

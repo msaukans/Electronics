@@ -13,15 +13,14 @@ public class AdministratorConfig {
 	
 	public static void main(String[] args){
 		
-		AdministratorConfig config;
-		config = new AdministratorConfig();
+		AdministratorConfig config = new AdministratorConfig();
 	}
 
 	public AdministratorConfig(){
 	    System.out.println("Enter username:");
-	    name = scan.nextLine();
+	    name=this.name;
 	    System.out.println("Enter password:");
-	    pass = scan.nextLine();
+	    pass = this.pass;
 		createAdministrator(name, pass);
 		System.out.println("Administrator " + name + " has been registered!");
 	}

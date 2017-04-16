@@ -46,17 +46,26 @@
           <p></p>
        </div>
         <div class="col-lg-4" style="background-color:lightgrey; border-radius: 25px;padding:5px;margin-right:4px; float:right;">
-          <h2 align="center">Login</h2>
-          <form action="login2.jsp" method="post" >
-  Username:<br>
-  <input type="text" name="username" >
-  <br>
-  Password:<br>
-  <input type="text" name="password">
-  <br><br>
-  <input type="submit" >
-	</form>
-<p > Dont have an account? Register <a href="Register.jsp"><button type="submit">Here</button></a></p>	
+          	<%@ page import="java.sql.*"%>
+			<%@ page import="javax.sql.*"%>
+	<%
+	String username=request.getParameter("username"); 
+	session.putValue("username",username); 
+	String password=request.getParameter("password"); 
+	Class.forName("com.mysql.jdbc.Driver"); 
+	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics","root","root"); 
+	Statement st= con.createStatement(); 
+	ResultSet rs=st.executeQuery("select * from administrator where username='"+username+"'"); 
+	if(rs.next()){ 
+	if(rs.getString(2).equals(password)){ 
+			out.println("welcome"+username); 
+		} 
+	else { 
+			out.println("Invalid password try again" + "  "); 
+		 }	 
+	} 
+	
+	%> 
         </div>
 		
       </div><br>

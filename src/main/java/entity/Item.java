@@ -29,6 +29,8 @@ public class Item {
 	private String model;
 	private double price;
 	private String category;
+	private int rating;
+	private int stock;
 	//private blob pic;
 	
 	public Item(){
@@ -36,12 +38,14 @@ public class Item {
 	}
 	
 
-	public Item(String brand, String model, double price, String category) {
+	public Item(String brand, String model, double price, String category, int rating, int stock) {
 		super();
 		this.brand = brand;
 		this.model = model;
 		this.price = price;
 		this.category = category;
+		this.rating = rating;
+		this.stock = stock;
 	}
 
 
@@ -74,6 +78,46 @@ public class Item {
 
 	public void setModel(String model) {
 		this.model = model;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+	public int getRating() {
+		return rating;
+	}
+
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+
+	public int getStock() {
+		return stock;
+	}
+
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
 
