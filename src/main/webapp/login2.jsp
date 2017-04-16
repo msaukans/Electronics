@@ -53,13 +53,23 @@
 	session.putValue("username",username); 
 	String password=request.getParameter("password"); 
 	Class.forName("com.mysql.jdbc.Driver"); 
-	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics","root","root"); 
+	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics?autoReconnect=true&useSSL=false","root","root"); 
 	Statement st= con.createStatement(); 
 	ResultSet rs=st.executeQuery("select * from administrator where username='"+username+"'"); 
 	if(rs.next()){ 
 	if(rs.getString(2).equals(password)){ 
 		out.println("welcome "+username + " administrator"); 
 		%>
+		<h2 align="center">Would you like to create another administrator?</h2>
+          <form action="AdminRegister.jsp" method="post" >
+ 	 Username:<br>
+  	<input type="text" name="username" >
+  	<br>
+  		Password:<br>
+  		<input type="text" name="password">
+  		<br><br>
+  	<input type="submit" >
+	</form>
 		
 		<form method="get" action="details.jsp">
    			 <button type="submit">Check user and stock details</button>

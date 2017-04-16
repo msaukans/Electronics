@@ -48,11 +48,11 @@
        </div>
         <div class="col-lg-4" style="background-color:lightgrey; border-radius: 25px;padding:5px;margin-right:4px; max-width:300px;">
           <h2 align="center">Registration</h2>
-          <form action="AdminRegister.jsp" method="post" >
+          <form action="CustomerRegister.jsp" method="post" >
   Username:<br>
   <input type="text" name="username" >
   <br>
-<!--   Email:<br>
+ Email:<br>
   <input type="text" name="email" >
   <br>
   Name:<br>
@@ -65,7 +65,7 @@
   <input type="text" name="address" >
   <br>Money<br>
   <input type="text" name="cash" >
-  <br> -->
+  <br>
   Password:<br>
   <input type="text" name="password">
   <br><br>

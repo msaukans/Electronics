@@ -33,10 +33,7 @@ input[type=text]:focus {
 
 <div class="row" align="center" style="max-width:80%">
         <div class="col-lg-4" style="float:left; padding:0px;margin-right:4px;border-radius: 25px;display;margin-left:3%">
-          <form action="search.jsp" method="post">
-			<input  type="text"  name="search" placeholder="Search items" >
-			<!-- <input type="submit" value="go"> -->
-		</form>
+          
         </div>
         <div class="col-lg-4" style="border-radius: 25px;padding:0px;margin-right:5px;">
           <p></p>
@@ -70,14 +67,27 @@ input[type=text]:focus {
         <h1>Stock</h1>
            <%@ page import="java.sql.*"%>
 			<%@ page import="javax.sql.*"%>
-	<%
+	<%	
+		String search=request.getParameter("search");
 		Class.forName("com.mysql.jdbc.Driver"); 
 		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics?autoReconnect=true&useSSL=false","root","root"); 
 		Statement st= con.createStatement(); 
-          
-  
-                
-   
+		ResultSet rs=st.executeQuery("select * from item where model='"+search+"'"); 
+  		while(rs.next()){
+  			String model = rs.getString("model");
+  			out.println("Result: " +  model);
+  		}
+  		rs=st.executeQuery("select * from item where brand='"+search+"'"); 
+  		while(rs.next()){
+  			String brand = rs.getString("brand");
+  			out.println("Result: " +  brand);
+  		}
+  		rs=st.executeQuery("select * from item where category='"+search+"'"); 
+  		while(rs.next()){
+  			String category = rs.getString("category");
+  			out.println("Result: " +  category);
+  		}
+		
 	%> 
        </div>
         <div class="col-lg-4" style=" border-radius: 25px;padding:5px;margin-right:4px;">

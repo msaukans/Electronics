@@ -50,9 +50,14 @@
           <%@ page import ="java.sql.*" %>
 			<%@ page import ="javax.sql.*" %>
 	<%
-	String administrator=request.getParameter("username"); 
-	session.putValue("id",administrator); 
+	String customer=request.getParameter("username"); 
+	session.putValue("id",customer); 
 	String password=request.getParameter("password"); 
+	String email=request.getParameter("email"); 
+	String name=request.getParameter("name"); 
+	String address=request.getParameter("address"); 
+	/* String dob=request.getParameter("dob"); */
+	String cash=request.getParameter("cash"); 
 	Class.forName("com.mysql.jdbc.Driver"); 
 	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics",
 	"root","root"); 
@@ -62,24 +67,13 @@
 	int i = rs.getInt(1);
 	i = i +1 ;
  */
-	int is=st.executeUpdate("insert into administrator values ('20','"+administrator+"','"+password+"')");
-out.println("Registered " + administrator ); 
+	int is=st.executeUpdate("insert into customer values ('20','"+customer+"','"+password+"','"+email+"','"+name+"','"+address+"','"
+ 			+cash+"')");
+out.println("Registered " + customer ); 
 
 
 %> 
-       
-       <%-- <%@ page import =" persistence.PersistenceUtil" %>
-       <%@ page import="entity.Administrator" %>
-       <%@ page import="main.AdministratorConfig" %>
-       <%
-      
-	String administrator=request.getParameter("username"); 
-	session.putValue("id",administrator); 
-	String password=request.getParameter("password"); 
-	Administrator a = new Administrator(administrator, password);
-	PersistenceUtil.persist(administrator);
-	out.println("Registered " + administrator ); 
-	%>  --%>
+    
        
         </div>
 		

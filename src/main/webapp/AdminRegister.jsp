@@ -54,7 +54,7 @@
 	session.putValue("id",administrator); 
 	String password=request.getParameter("password"); 
 	Class.forName("com.mysql.jdbc.Driver"); 
-	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics",
+	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics?autoReconnect=true&useSSL=false",
 	"root","root"); 
 	Statement st= con.createStatement(); 
 	ResultSet rs; ;
@@ -62,7 +62,7 @@
 	int i = rs.getInt(1);
 	i = i +1 ;
  */
-	int is=st.executeUpdate("insert into administrator values ('20','"+administrator+"','"+password+"')");
+	int is=st.executeUpdate("insert into administrator values ('26','"+administrator+"','"+password+"')");
 	out.println("Registered " + administrator );
 %> 
        

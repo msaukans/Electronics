@@ -104,7 +104,8 @@
 	<H2>Change Stock level</H2>
 	<p></p>
 	<form action="editStock.jsp" method="post">
-		
+		id of item you want to edit: <br><input type="text" name="id" ><br>
+		stock to which you wish to change it to:<br><input type="text" name="stock"><br><br>
 		<input type="submit">
 	</form>
 	

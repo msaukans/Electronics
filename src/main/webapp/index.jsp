@@ -66,7 +66,7 @@ input[type=text]:focus {
         <div class="col-lg-4" style="padding:5px;margin-right:4px;border-radius: 25px;display;margin-left:3%">
           <p></p>
         </div>
-        <div class="col-lg-4" style="border-radius: 25px;padding:5px;margin-right:5px;">
+        <div class="col-lg-4" style="border-radius: 25px;padding:5px;margin-right:5px; min-width:85%;">
         <h1>Stock</h1>
            <%@ page import="java.sql.*"%>
 			<%@ page import="javax.sql.*"%>

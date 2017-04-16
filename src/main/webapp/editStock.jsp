@@ -69,11 +69,19 @@ input[type=text]:focus {
         <div class="col-lg-4" style="border-radius: 25px;padding:5px;margin-right:5px;">
            <%@ page import="java.sql.*"%>
 			<%@ page import="javax.sql.*"%>
-	<%
+	<%	
+		String id=request.getParameter("id"); 
+		String stock = request.getParameter("stock");
+		int id2 = Integer.parseInt(id);
+		int stock2 = Integer.parseInt(stock);
 		Class.forName("com.mysql.jdbc.Driver"); 
 		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronics?autoReconnect=true&useSSL=false","root","root"); 
-		Statement st= con.createStatement(); 
-      
+		Statement stmt= con.createStatement(); 
+		ResultSet rs;
+		rs=stmt.executeQuery("update item set stock='"+stock+"' where id = '"+ id +"';");
+		rs.close();
+		/* rs=stmt.executeQuery("select * from item where id='"+id2+"';");
+		rs.close(); */
 	%> 
        </div>
         <div class="col-lg-4" style=" border-radius: 25px;padding:5px;margin-right:4px;">
